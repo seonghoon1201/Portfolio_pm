@@ -29,7 +29,6 @@ const ICONS = [Layout, Cog, GitBranch, Rocket, ClipboardList];
 
 export default function RoleModal({ open, onClose, data }: RoleModalProps) {
   if (!data) return null;
-
   return (
     <Modal
       open={open}
@@ -49,13 +48,11 @@ export default function RoleModal({ open, onClose, data }: RoleModalProps) {
                 </span>
                 <h4 className="font-semibold">{r.label}</h4>
               </div>
-
               <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
                 {r.bullets.map((b, i) => (
                   <li key={i}>{b}</li>
                 ))}
               </ul>
-
               {r.tags?.length ? (
                 <div className="mt-3 flex flex-wrap gap-2">
                   {r.tags.map((t) => (

@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Mail, Phone, MapPin, Github, Linkedin, Copy } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Copy } from 'lucide-react';
 
 export default function ContactSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -49,7 +49,6 @@ export default function ContactSection() {
   const handleCopy = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
-      // 가벼운 피드백 (shadcn/toast가 있다면 교체)
       console.log('Copied:', text);
     } catch (e) {
       console.warn('Copy failed', e);
@@ -59,7 +58,6 @@ export default function ContactSection() {
   return (
     <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
       <div className="max-w-7xl mx-auto">
-        {/* 섹션 헤더 */}
         <div
           className={`text-center mb-12 transition-all duration-700 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
@@ -73,13 +71,11 @@ export default function ContactSection() {
             Contact
           </h2>
           <p className="mt-3 text-lg text-muted-foreground text-pretty max-w-3xl mx-auto">
-            새로운 기회나 협업에 대해 이야기하고 싶으시다면 언제든 연락해
-            주세요.
+            기획 협업·채용·프로젝트 문의는 언제든 편하게 연락 주세요.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-          {/* LEFT: 연락처 + 소셜 */}
           <Card
             className={`border bg-card/70 backdrop-blur transition-all duration-700 hover:shadow-lg ${
               isVisible
@@ -125,10 +121,9 @@ export default function ContactSection() {
                 ))}
               </div>
 
-              {/* Social */}
               <div className="pt-2">
                 <div className="mb-3 text-sm font-medium text-foreground/80">
-                  소셜 미디어
+                  소셜
                 </div>
                 <div className="flex flex-wrap gap-3">
                   {socialLinks.map((s) => (
@@ -149,7 +144,6 @@ export default function ContactSection() {
             </CardContent>
           </Card>
 
-          {/* RIGHT: 메시지 폼 */}
           <Card
             className={`relative border bg-card/70 backdrop-blur transition-all duration-700 hover:shadow-lg ${
               isVisible
@@ -161,16 +155,13 @@ export default function ContactSection() {
             <CardHeader className="pb-4">
               <CardTitle className="text-2xl">메시지 보내기</CardTitle>
             </CardHeader>
-
             <CardContent>
               <form
                 className="space-y-5"
                 action="mailto:hooni7007@naver.com"
                 method="get"
               >
-                {/* 이름 / 이메일 */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* 이름 */}
                   <div className="group relative">
                     <input
                       type="text"
@@ -182,15 +173,11 @@ export default function ContactSection() {
                     />
                     <label
                       htmlFor="name"
-                      className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 bg-background/80 px-1 text-sm text-muted-foreground transition-all
-                                 peer-focus:top-0 peer-focus:text-xs peer-focus:text-primary
-                                 peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:text-xs"
+                      className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 bg-background/80 px-1 text-sm text-muted-foreground transition-all peer-focus:top-0 peer-focus:text-xs peer-focus:text-primary peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:text-xs"
                     >
                       이름
                     </label>
                   </div>
-
-                  {/* 이메일 */}
                   <div className="group relative">
                     <input
                       type="email"
@@ -202,16 +189,12 @@ export default function ContactSection() {
                     />
                     <label
                       htmlFor="email"
-                      className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 bg-background/80 px-1 text-sm text-muted-foreground transition-all
-                                 peer-focus:top-0 peer-focus:text-xs peer-focus:text-primary
-                                 peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:text-xs"
+                      className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 bg-background/80 px-1 text-sm text-muted-foreground transition-all peer-focus:top-0 peer-focus:text-xs peer-focus:text-primary peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:text-xs"
                     >
                       이메일
                     </label>
                   </div>
                 </div>
-
-                {/* 제목 */}
                 <div className="group relative">
                   <input
                     type="text"
@@ -223,15 +206,11 @@ export default function ContactSection() {
                   />
                   <label
                     htmlFor="subject"
-                    className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 bg-background/80 px-1 text-sm text-muted-foreground transition-all
-                               peer-focus:top-0 peer-focus:text-xs peer-focus:text-primary
-                               peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:text-xs"
+                    className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 bg-background/80 px-1 text-sm text-muted-foreground transition-all peer-focus:top-0 peer-focus:text-xs peer-focus:text-primary peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:text-xs"
                   >
                     제목
                   </label>
                 </div>
-
-                {/* 메시지 */}
                 <div className="group relative">
                   <textarea
                     id="body"
@@ -243,25 +222,19 @@ export default function ContactSection() {
                   />
                   <label
                     htmlFor="body"
-                    className="pointer-events-none absolute left-3 top-3 bg-background/80 px-1 text-sm text-muted-foreground transition-all
-                               peer-focus:-top-2 peer-focus:text-xs peer-focus:text-primary
-                               peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs"
+                    className="pointer-events-none absolute left-3 top-3 bg-background/80 px-1 text-sm text-muted-foreground transition-all peer-focus:-top-2 peer-focus:text-xs peer-focus:text-primary peer-not-placeholder-shown:-top-2 peer-not-placeholder-shown:text-xs"
                   >
                     메시지
                   </label>
                 </div>
-
-                {/* 전송 버튼 (mailto 링크 유지) */}
                 <Button className="w-full" asChild>
                   <a
-                    href="mailto:hooni7007@naver.com?subject=%EB%AC%B8%EC%9D%98%20%EC%A0%9C%EB%AA%A9&body=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94%2C%20%EC%84%B1%ED%9B%88%EB%8B%98!"
+                    href="mailto:hooni7007@naver.com?subject=%EA%B8%B0%ED%9A%8D%20%EB%AC%B8%EC%9D%98&body=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94%2C%20%EC%A0%95%EC%84%B1%ED%9B%88%EB%8B%98!"
                     aria-label="메일 보내기"
                   >
                     메시지 보내기
                   </a>
                 </Button>
-
-                {/* 작은 안내문 */}
                 <p className="text-xs text-muted-foreground text-center">
                   제출 클릭 시 기본 메일 앱이 열립니다. 서버 저장은 하지
                   않습니다.

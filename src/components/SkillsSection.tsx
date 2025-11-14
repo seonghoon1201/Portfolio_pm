@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Progress, Tooltip } from 'antd';
-import { Wrench, Boxes, Code2 } from 'lucide-react';
+import { Tooltip } from 'antd';
+import { Wrench, Boxes, Code2, CheckCircle2 } from 'lucide-react';
 
 export default function SkillsSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -18,47 +18,39 @@ export default function SkillsSection() {
     return () => io.disconnect();
   }, []);
 
-  const languageSkills = [
-    { name: 'JavaScript', level: 80 },
-    { name: 'TypeScript', level: 40 },
-    { name: 'HTML5', level: 80 },
-    { name: 'CSS3', level: 80 },
+  const planningCore = [
+    '문제 정의 및 가설 수립',
+    'IA 설계 / 유저 플로우 설계',
+    '와이어프레임 / 프로토타입 기획',
+    'PRD·정책 설계 / 예외 케이스 정의',
   ];
 
-  const frameworkSkills = [
-    { name: 'React', level: 80 },
-    { name: 'Vue', level: 70 },
-    { name: 'React Native', level: 70 },
-    { name: 'Next.js', level: 60 },
-    { name: 'Tailwind CSS', level: 70 },
-    { name: 'Bootstrap CSS', level: 70 },
+  const researchAnalytics = [
+    '인터뷰 / 설문 설계 및 진행',
+    '고객 여정맵 / JTBD 정리',
+    '핵심 지표 설계 / 로그 정의',
+    'A/B 테스트 기획 / 결과 해석',
   ];
 
   const libraries = [
-    'Zustand',
-    'Pinia',
-    'Ant Design',
-    'Chart.js',
-  ];
-
-  const tools = [
-    'Git',
-    'GitHub',
-    'Vercel',
     'Figma',
     'Notion',
-    'Slack',
+    'Google Analytics',
     'Postman',
     'Swagger',
-    'VS Code',
-    'IntelliJ',
-    'Android Studio',
+  ];
+
+  const devLiteracy = [
+    'HTML / CSS / JS 이해',
+    'React',
+    'Vue',
+    'REST API 이해',
+    'Git / GitHub 협업',
   ];
 
   return (
     <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
       <div className="max-w-7xl mx-auto">
-        {/* 섹션 헤더 */}
         <div
           className={`text-center mb-12 transition-all duration-700 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
@@ -72,13 +64,12 @@ export default function SkillsSection() {
             Skills
           </h2>
           <p className="mt-3 text-lg text-muted-foreground max-w-3xl mx-auto">
-            제가 다룰 수 있는 언어, 프레임워크, 그리고 협업 도구들입니다.
+            기획 중심 역량을 전면에 두고, 구현 이해도를 함께 보유하고 있습니다.
           </p>
         </div>
 
-        {/* 카드 그리드 */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {/* Languages & Core */}
+          {/* Planning Core */}
           <Card
             className={`group h-full border bg-card/70 backdrop-blur transition-all duration-700 hover:shadow-lg ${
               isVisible
@@ -88,38 +79,27 @@ export default function SkillsSection() {
           >
             <CardHeader className="pb-4">
               <div className="flex items-center justify-center gap-2">
-                <Code2 className="h-5 w-5 text-primary" />
+                <Boxes className="h-5 w-5 text-primary" />
                 <CardTitle className="text-center text-xl">
-                  Languages & Core
+                  Planning & UX Core
                 </CardTitle>
               </div>
               <div className="mx-auto mt-2 h-px w-24 bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
             </CardHeader>
-            <CardContent className="space-y-4">
-              {languageSkills.map((skill, idx) => (
+            <CardContent className="space-y-2">
+              {planningCore.map((item, idx) => (
                 <div
                   key={idx}
-                  className="rounded-lg border p-3 bg-background/60"
+                  className="flex items-start gap-2 rounded-lg border px-3 py-2 bg-background/60"
                 >
-                  <div className="mb-2 flex items-center justify-between text-sm font-medium">
-                    <span className="text-foreground/90">{skill.name}</span>
-                    <span className="tabular-nums text-muted-foreground">
-                      {skill.level}%
-                    </span>
-                  </div>
-                  <Progress
-                    percent={skill.level}
-                    size="small"
-                    status="active"
-                    strokeColor="#0891b2"
-                    trailColor="rgba(8,145,178,0.15)"
-                  />
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 text-primary" />
+                  <span className="text-sm text-foreground/90">{item}</span>
                 </div>
               ))}
             </CardContent>
           </Card>
 
-          {/* Frameworks / Libraries */}
+          {/* Research & Analytics */}
           <Card
             className={`group h-full border bg-card/70 backdrop-blur transition-all duration-700 hover:shadow-lg ${
               isVisible
@@ -130,39 +110,29 @@ export default function SkillsSection() {
           >
             <CardHeader className="pb-4">
               <div className="flex items-center justify-center gap-2">
-                <Boxes className="h-5 w-5 text-primary" />
+                <Code2 className="h-5 w-5 text-primary" />
                 <CardTitle className="text-center text-xl">
-                  Frameworks / Libraries
+                  Research & Data
                 </CardTitle>
               </div>
               <div className="mx-auto mt-2 h-px w-24 bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
             </CardHeader>
             <CardContent className="space-y-4">
-              {frameworkSkills.map((skill, idx) => (
-                <div
-                  key={idx}
-                  className="rounded-lg border p-3 bg-background/60"
-                >
-                  <div className="mb-2 flex items-center justify-between text-sm font-medium">
-                    <span className="text-foreground/90">{skill.name}</span>
-                    <span className="tabular-nums text-muted-foreground">
-                      {skill.level}%
-                    </span>
+              <div className="space-y-2">
+                {researchAnalytics.map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="flex items-start gap-2 rounded-lg border px-3 py-2 bg-background/60"
+                  >
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 text-primary" />
+                    <span className="text-sm text-foreground/90">{item}</span>
                   </div>
-                  <Progress
-                    percent={skill.level}
-                    size="small"
-                    status="active"
-                    strokeColor="#0891b2"
-                    trailColor="rgba(8,145,178,0.15)"
-                  />
-                </div>
-              ))}
+                ))}
+              </div>
 
-              {/* Libraries Chips */}
               <div className="pt-2">
                 <div className="mb-2 text-xs uppercase tracking-wider text-muted-foreground">
-                  Libraries
+                  Tools
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {libraries.map((lib, idx) => (
@@ -177,7 +147,7 @@ export default function SkillsSection() {
             </CardContent>
           </Card>
 
-          {/* Tools & Others */}
+          {/* Dev Literacy */}
           <Card
             className={`group h-full border bg-card/70 backdrop-blur transition-all duration-700 hover:shadow-lg ${
               isVisible
@@ -190,14 +160,14 @@ export default function SkillsSection() {
               <div className="flex items-center justify-center gap-2">
                 <Wrench className="h-5 w-5 text-primary" />
                 <CardTitle className="text-center text-xl">
-                  Tools & Others
+                  Dev Literacy
                 </CardTitle>
               </div>
               <div className="mx-auto mt-2 h-px w-24 bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
             </CardHeader>
             <CardContent>
               <div className="flex flex-wrap gap-2">
-                {tools.map((tool, idx) => (
+                {devLiteracy.map((tool, idx) => (
                   <span
                     key={idx}
                     className="px-3 py-1 text-sm rounded-md border bg-background/70 hover:bg-background transition"

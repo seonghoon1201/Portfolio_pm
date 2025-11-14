@@ -20,7 +20,7 @@ type Project = {
   image: string;
   technologies: string[];
   github: string;
-  readme: string; // 보관용(표시 안 함)
+  readme: string;
   status?: string;
   roleData: ProjectRoleData;
 };
@@ -42,243 +42,195 @@ export default function ProjectsSection() {
 
   const projects: Project[] = [
     {
-      title: '등산 도우미 어플 Hiking Planner',
+      title: 'ZIBI – 청약 지비',
       description:
-        'React Native를 이용한 등산 도우미 어플입니다. 등산로 실시간 트래킹, SOS 기능, 실시간 등산로 이상 신고 기능, 날씨 정보, 커뮤니티 등의 기능을 제공합니다.',
-      image: '/Hiking_Planner_logo.png',
-      technologies: ['Next.js', 'React Native', 'Bootstrap CSS'],
-      github: 'https://github.com/Hiking-Planner',
-      readme:
-        'https://github.com/Hiking-Planner/.github/blob/main/profile/README.md',
-      roleData: {
-        title: 'Hiking Planner',
-        period: '2024.02 – 2024.11', // ⬅ 기간 보강
-        summary: '아이디어·UI/UX·팀 리드 · 인증/트래킹/신고 FE 개발',
-        roles: [
-          // ✅ 네가 추가로 알려준 내용(팀장/아이디어 총괄) — 기존 항목 유지 + 보강
-          {
-            label: '팀 리드 & 아이디어/제품 기획',
-            bullets: [
-              '서비스 전체 아이디어를 제시하고 핵심 기능(실시간 트래킹, SOS, 이상 신고, 날씨, 커뮤니티) 도출.',
-              '프로젝트 로드맵/마일스톤 수립, 우선순위 및 리스크 관리, 주간 스탠드업 운영.',
-            ],
-            tags: ['Leadership', 'PM', 'Roadmap'],
-          },
-          // ⬇ 기존에 있던 블록들 유지
-          {
-            label: '기획 & UX',
-            bullets: [
-              '문제정의(산길 이탈/조난 리스크) 기반 핵심 기능 도출: 실시간 트래킹, SOS, 신고.',
-              'IA/플로우/와이어 작성, MVP 범위와 릴리스 로드맵 수립.',
-            ],
-            tags: ['IA', 'User Flow', 'Wireframe'],
-          },
-          {
-            label: '프론트엔드 (RN)',
-            bullets: [
-              'React Native 기반 구조 설계: 네비게이션/상태관리/권한 처리.',
-              'SOS 빠른 호출 UI, 트래킹 화면(지도/상태 배지/일시정지) 구현.',
-              '날씨 API 연동 및 캐싱, 커뮤니티 피드 리스트/상세 구현.',
-            ],
-            tags: ['React Native', 'Expo', 'Location', 'Permissions'],
-          },
-          // ✅ 네가 맡았다고 한 인증 영역 보강(새 블록)
-          {
-            label: '인증/계정',
-            bullets: [
-              '회원가입/로그인 플로우 전담(입력 검증, 에러/로딩 상태, 토큰 보관 전략).',
-              '세션 만료·재인증 케이스 UX 설계 및 예외 처리.',
-            ],
-            tags: ['Auth', 'Form UX'],
-          },
-          {
-            label: '품질 & 배포',
-            bullets: [
-              '크래시·성능 로그 수집 지표 정의, 크리티컬 경로 테스트 시나리오 수립.',
-              '스토어 배포 준비: 아이콘/런치 스크린/권한 문구/프라이버시 검사.',
-            ],
-            tags: ['QA', 'Release'],
-          },
-        ],
-      },
-    },
-
-    {
-      title: '주택 청약 도우미 어플 ZIBI',
-      description:
-        '주택 청약 통장의 가입률은 높지만, 실제 청약 신청률은 낮다는 점에 착안하여 개발한 Vue 기반의 주택 청약 도우미 웹앱입니다. 청약 일정 알림, 청약 가점 계산기, 청약 정보 제공 등의 기능을 제공하여 기존 청약 사용자 및 신규 청약 사용자 모두에게 유용한 앱입니다.',
+        '복잡한 청약 정보를 단계형 UX로 단순화한 주택청약 도우미 웹앱. 신규/기존 사용자 모두의 진입장벽을 낮추는 흐름을 설계했습니다.',
       image: '/zibi_logo.png',
       technologies: [
-        'Vue',
-        'JavaScript',
-        'Pinia',
-        'Vite',
-        'Tailwind CSS',
-        'Chart.js',
-        'Lucide Icons',
-        'Ant Design',
+        'Figma',
+        'Miro',
+        'PRD',
+        'IA/Flow',
+        'Kakao Map',
+        'Vue(협업 소통)',
       ],
       github: 'https://github.com/PJT-16-3',
       readme: 'https://github.com/PJT-16-3/.github/blob/main/profile/README.md',
       roleData: {
         title: 'ZIBI (청약 도우미)',
-        period: '2025.07 – 2025.08', // ⬅ 기간 보강
-        summary: '팀장 · UI/UX · FE 리드 · 인증/계좌 연동 · 청약 상세',
+        period: '2025.07 – 2025.08',
+        summary: '팀장 · 서비스 기획 · UX 설계 · FE 협업',
         roles: [
-          // ✅ 네가 추가로 말한 팀장 역할 보강(새 블록)
           {
-            label: '팀 리드 & 기획',
+            label: '문제정의 & 전략',
             bullets: [
-              '팀장으로 일정/범위/리스크 관리 및 의사결정 주도.',
-              'UX 목표(신규/기존 사용자 모두의 진입장벽 완화) 정의 및 핵심 플로우 설계.',
+              '청약 정보 과잉/용어 난해성 문제 정의',
+              '신규/기존 사용자 시나리오 분기 및 KPI 설정',
             ],
-            tags: ['Leadership', 'Planning'],
-          },
-          // ⬇ 기존 블록 유지
-          {
-            label: 'FE 리드 (Vue)',
-            bullets: [
-              'Vue 3 + Pinia + Vite 구조 설계, 공통 컴포넌트/레이아웃 정리.',
-              '가점 계산 플로우(다단계 질문) UI/상태/결과 차트 구현.',
-              '선호 지역/평수/가격 Pinia 스토어 및 추천 리스트 바인딩.',
-            ],
-            tags: ['Vue 3', 'Pinia', 'Vite', 'Tailwind'],
+            tags: ['Problem Framing', 'KPI'],
           },
           {
-            label: 'UX & 디자인 시스템',
+            label: 'IA/플로우/정책',
             bullets: [
-              'Figma 기준 색/타이포/간격 시스템화, 다크모드/반응형 정렬.',
-              'Kakao Map/Marker/카드 인터랙션 및 접근성 점검.',
+              '선호 설정 → 가점 계산 → 추천 흐름 IA/플로우',
+              '예외/권한/정책서 및 데이터 매핑 명세',
             ],
-            tags: ['Design System', 'A11y'],
-          },
-          // ✅ 추가 요청: 인증/계좌연결/청약상세
-          {
-            label: '인증/계좌 연동',
-            bullets: [
-              '로그인/회원가입 플로우 구현 및 예외 처리.',
-              '청약 통장 계좌 연동·검증(마스킹/재시도 UX) 처리.',
-            ],
-            tags: ['Auth', 'Account Linking'],
+            tags: ['IA', 'Policy'],
           },
           {
-            label: '주요 화면',
+            label: '핸드오프 & 협업',
             bullets: [
-              '청약 상세보기(요약·자격·지역/평형 정보·신청 가이드) 설계/구현.',
-              '리스트↔상세 탐색 흐름 최적화(필터/정렬/상세 전환).',
+              'API 계약서/스키마 정의, 화면-데이터 매핑',
+              '컴포넌트 규칙·상태명 규칙 합의',
             ],
-            tags: ['Detail View', 'IA'],
+            tags: ['Handoff', 'API Contract'],
           },
           {
-            label: 'PWA & 품질',
+            label: '지표/검증',
             bullets: [
-              'PWA 적용(아이콘/스플래시/오프라인 캐시), LCP 개선(이미지 lazy/sizes).',
+              '진입→계산→상세 전환 지표 설계',
+              'A/B 실험안 도출 및 로그 설계',
             ],
-            tags: ['PWA', 'Lighthouse'],
+            tags: ['Metrics', 'Experiment'],
           },
         ],
       },
     },
-
     {
-      title: '여행 계획 어플 여담',
+      title: 'Hiking Planner – 등산 안전 앱',
       description:
-        'Tour API 공모전에 제출한 React기반의 여행 계획 웹앱입니다. AI를 이용한 여행 일정 자동 최적화 및 생성, 장바구니, 여행 일기 커뮤니티 등의 기능을 제공합니다.',
+        '조난/이탈 상황에서 빠른 구조를 돕는 안전 중심 앱. SOS 1-탭 구조와 경로 최소화를 목표로 설계했습니다.',
+      image: '/Hiking_Planner_logo.png',
+      technologies: [
+        'User Interview',
+        'Journey Map',
+        'Wireframe',
+        'SOS UX',
+        'RN(협업 소통)',
+      ],
+      github: 'https://github.com/Hiking-Planner',
+      readme:
+        'https://github.com/Hiking-Planner/.github/blob/main/profile/README.md',
+      roleData: {
+        title: 'Hiking Planner',
+        period: '2024.02 – 2024.11',
+        summary: '아이디어·UX 총괄 · 팀 리드',
+        roles: [
+          {
+            label: '리서치',
+            bullets: [
+              '사전 인터뷰/리스크 맵 작성',
+              '경쟁 서비스 벤치마크 및 차별점 정의',
+            ],
+            tags: ['Research'],
+          },
+          {
+            label: 'UX 설계',
+            bullets: [
+              'SOS 원터치/확인 최소화 플로우',
+              '트래킹·신고·날씨 핵심 사용자 여정',
+            ],
+            tags: ['Flow', 'Wireframe'],
+          },
+          {
+            label: '정책/예외',
+            bullets: [
+              '권한/네트워크/배터리 예외 정책',
+              '오류 상태 UX(오프라인/저전력)',
+            ],
+            tags: ['Policy'],
+          },
+          {
+            label: '지표',
+            bullets: ['핵심 경로 과업 완료율', '이탈 포인트 개선 가설 수립'],
+            tags: ['Metrics'],
+          },
+        ],
+      },
+    },
+    {
+      title: 'Yeodam – 여행 계획 플랫폼',
+      description:
+        '여행 목적·예산·취향 기반으로 자동 일정을 생성하고 편집하는 웹앱. 지도/일정 동기화 중심의 편집 UX를 설계했습니다.',
       image: '/yeodam.png',
       technologies: [
-        'React',
-        'JavaScript',
-        'Zustand',
-        'Tailwind CSS',
-        'Lucide Icons',
-        'Ant Design',
+        'Storyboarding',
+        'IA/Flow',
+        'Tour API',
+        'Schedule Editing',
+        'React(협업 소통)',
       ],
       github: 'https://github.com/YeoDamHuman',
       readme:
         'https://github.com/YeoDamHuman/.github/blob/main/profile/README.md',
       roleData: {
         title: '여담 (여행 계획 앱)',
-        period: '2025.05 – 2025.09', // ⬅ 기간 보강
-        summary: '프론트엔드 · 인증 · 장바구니/일정/지도 플로우 구현',
+        period: '2025.05 – 2025.09',
+        summary: '서비스 기획 · UX Writing · API 와이어업',
         roles: [
-          // ⬇ 기존 블록 유지
           {
-            label: '프론트엔드',
+            label: '핵심 가치',
             bullets: [
-              'React + Zustand로 플로우/상태 설계(위치→날짜→스타일→예산→초대).',
-              '장바구니 모달(금액 입력)/추천/필터/상세 모달 구현.',
-              '일정 결과 페이지(일자별 카드, Kakao Map, 하단 고정 CTA) 구현.',
+              '준비과정 자동화(입력→계획)',
+              '지도/일정 동기화 편집 경험',
             ],
-            tags: ['React', 'Zustand', 'Tailwind', 'Kakao Map'],
+            tags: ['Value Prop'],
           },
           {
-            label: 'API 연동 & 최적화',
+            label: 'IA/플로우',
             bullets: [
-              'Tour API 검색/지역코드 매핑, 이미지 fallback·sizes 최적화.',
-              '일정 자동 생성/최적화 API 와이어업 및 오류 핸들링.',
+              '위치→날짜→스타일→예산→초대 단계 설계',
+              '장바구니/추천/필터 상호작용 정의',
             ],
-            tags: ['API', 'Optimization'],
+            tags: ['IA', 'Flow'],
           },
-          // ✅ 추가 요청: 인증 담당 명시(새 블록)
           {
-            label: '인증',
-            bullets: [
-              '로그인/회원가입 플로우 구현, 토큰/세션 상태 관리 및 예외 케이스 처리.',
-            ],
-            tags: ['Auth'],
+            label: 'API와이어업',
+            bullets: ['Tour API 스펙 검토 및 Fallback 정책', '에러/빈 결과 UX'],
+            tags: ['API', 'UX Writing'],
           },
-          // 기존에 있던 협업·배포가 있었다면 유지하고 싶다면 아래 주석 해제
-          // {
-          //   label: '협업 & 배포',
-          //   bullets: [
-          //     '컴포넌트 규칙/코드 스타일 가이드 합의, PR 리뷰.',
-          //     'Vercel 배포/환경변수/도메인 관리.',
-          //   ],
-          //   tags: ['Vercel', 'PR Review'],
-          // },
         ],
       },
     },
-
     {
-      title: '동아리 홈페이지 DKUAC',
+      title: 'DKUAC – 산악부 홈페이지',
       description:
-        '제가 회장으로 있던 단국대학교 산악부의 보다 편한 운영을 위해 만든 React 기반의 홈페이지입니다. 암벽화 실시간 대여 시스템, 동아리 활동 기록 커뮤니티 등의 기능을 제공합니다.',
+        '장비 대여/활동 기록을 온라인으로 전환한 운영 시스템. 역할/권한과 프로세스를 기준으로 정보 구조를 설계했습니다.',
       image: '/DKUAC_logo.png',
-      technologies: ['React', 'JavaScript', 'Tailwind CSS'],
+      technologies: [
+        'Requirement',
+        'Role/Permission',
+        'Process',
+        'Dashboard',
+        'React(협업 소통)',
+      ],
       github: 'https://github.com/DKUAC',
       readme: 'https://github.com/DKUAC/.github/blob/main/profile/README.md',
       roleData: {
         title: 'DKUAC 동아리 홈페이지',
-        period: '2024.07 – 2024.12', // ⬅ 기간 보강
-        summary: '단독 프론트엔드 · 운영/유지보수 · 장비 대여/커뮤니티',
+        period: '2024.07 – 2024.12',
+        summary: '서비스 설계 · 운영 정책 · 유지보수',
         roles: [
-          // ⬇ 기존 블록 유지
           {
-            label: '서비스 설계',
+            label: '요구사항 정리',
             bullets: [
-              '운영 Pain Point 인터뷰 → 요구사항 정리 및 우선순위 확정.',
-              '장비 대여·반납 프로세스(알림/패널티/재고) 정의.',
+              '운영 Pain Point 인터뷰/정리',
+              '우선순위 및 릴리즈 플랜 수립',
             ],
-            tags: ['Interview', 'Requirement'],
+            tags: ['Requirement'],
           },
           {
-            label: '프론트엔드',
-            bullets: [
-              'React + Tailwind로 대여/반납 플로우 UI 구현, 재고 배지/필터.',
-              '활동 기록(게시판) 목록/상세/작성/수정/권한 UI 구현.',
-            ],
-            tags: ['React', 'Tailwind CSS'],
+            label: '프로세스/정책',
+            bullets: ['대여·반납 정책/패널티/알림', '권한/역할 설계'],
+            tags: ['Policy', 'R&R'],
           },
-          // ✅ 추가 요청: 단독 FE & 유지보수 강조(새 블록)
           {
-            label: '운영 & 유지보수',
+            label: '운영/지표',
             bullets: [
-              '프론트엔드를 단독으로 담당하여 전역 구조·라우팅·상태 설계 및 전체 UI 구현.',
-              '운영 이슈 대응, UX 개선, 온보딩/운영 매뉴얼 문서화.',
-              '대여율/미반납/활동량 지표 대시보드(간이) 구성.',
+              '대여율/미반납/활동량 간이 대시보드',
+              '운영 매뉴얼/온보딩 문서화',
             ],
-            tags: ['Maintenance', 'Docs', 'Dashboard'],
+            tags: ['Ops', 'Dashboard'],
           },
         ],
       },
@@ -293,7 +245,6 @@ export default function ProjectsSection() {
   return (
     <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* 헤더 */}
         <div
           className={`text-center mb-12 transition-all duration-700 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
@@ -301,17 +252,17 @@ export default function ProjectsSection() {
         >
           <div className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs text-muted-foreground bg-background/60 backdrop-blur">
             <span className="inline-block h-2 w-2 rounded-full bg-primary/70" />
-            Selected Works
+            Case Studies
           </div>
           <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight text-balance">
             Projects
           </h2>
           <p className="mt-3 text-lg text-muted-foreground text-pretty max-w-3xl mx-auto">
-            제가 개발한 주요 프로젝트들을 소개합니다.
+            제가 <strong>기획하고 팀과 함께 만든</strong> 주요 작업을
+            소개합니다. (모든 개발·협업 맥락은 역할 모달에서 확인하세요.)
           </p>
         </div>
 
-        {/* 그리드 */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {projects.map((p, i) => (
             <Card
@@ -323,7 +274,6 @@ export default function ProjectsSection() {
               }`}
               style={{ transitionDelay: `${i * 120}ms` }}
             >
-              {/* 이미지 (클릭 시 역할 모달) */}
               <button
                 type="button"
                 onClick={() => onOpenRole(p.roleData)}
@@ -341,18 +291,8 @@ export default function ProjectsSection() {
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-
-                {/* 상태 리본 */}
-                {p.status && (
-                  <div className="pointer-events-none absolute left-0 top-0">
-                    <span className="absolute -left-10 -top-10 rotate-[-45deg] bg-primary text-primary-foreground px-16 py-1 text-[11px] font-semibold shadow-sm">
-                      {p.status}
-                    </span>
-                  </div>
-                )}
               </button>
 
-              {/* 본문 */}
               <CardHeader className="pb-3">
                 <CardTitle className="text-xl leading-tight group-hover:text-primary transition-colors">
                   {p.title}
@@ -363,7 +303,6 @@ export default function ProjectsSection() {
               </CardHeader>
 
               <CardContent>
-                {/* 스택 */}
                 <div className="mb-4 flex flex-wrap gap-2">
                   {p.technologies.map((t) => (
                     <Badge
@@ -375,8 +314,6 @@ export default function ProjectsSection() {
                     </Badge>
                   ))}
                 </div>
-
-                {/* 버튼: GitHub + 역할(README 대체) */}
                 <div className="grid grid-cols-2 gap-2">
                   <Button
                     asChild
@@ -394,8 +331,6 @@ export default function ProjectsSection() {
                       GitHub
                     </a>
                   </Button>
-
-                  {/* README 대신 역할 모달 오픈 */}
                   <Button
                     size="sm"
                     onClick={() => onOpenRole(p.roleData)}
@@ -410,8 +345,6 @@ export default function ProjectsSection() {
           ))}
         </div>
       </div>
-
-      {/* 역할/기여 모달 */}
       <RoleModal open={open} onClose={() => setOpen(false)} data={selected} />
     </section>
   );
