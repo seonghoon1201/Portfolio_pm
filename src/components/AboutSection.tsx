@@ -27,39 +27,42 @@ export default function AboutSection() {
   const features = [
     {
       icon: Lightbulb,
-      title: '문제정의 & 가설수립',
+      title: '문제정의·목표·우선순위',
       description:
-        '리서치 인사이트로 핵심 문제를 요약하고 검증 가능한 가설·지표를 세웁니다.',
+        '리서치/피드백을 근거로 문제를 한 문장으로 정리하고, 목표·범위·우선순위를 합의합니다.',
     },
     {
       icon: Users,
-      title: '사용자 리서치',
+      title: '사용자 관점 리서치 정리',
       description:
-        '인터뷰·페르소나·저니맵으로 과업을 분석하고 요구사항을 구조화합니다.',
+        '인터뷰/설문/관찰 내용을 페르소나·저니·JTBD로 구조화해 요구사항으로 연결합니다.',
     },
     {
       icon: ListChecks,
-      title: 'IA·플로우·정책',
+      title: 'IA·플로우·정책 설계',
       description:
-        'IA/플로우/정책서·화면정의서로 개발 가능한 수준의 명세를 만듭니다.',
+        '정보구조(IA)와 핵심 플로우, 예외/권한/상태(에러·빈 결과 등) 정책을 명확히 정의합니다.',
     },
     {
       icon: ClipboardList,
-      title: 'PRD/요구사항 정의',
-      description: '범위·우선순위·예외케이스를 담은 PRD로 팀 합의를 이끕니다.',
+      title: 'PRD·요구사항 명세',
+      description:
+        '기능 정의, 수용 기준(AC), 엣지케이스까지 포함해 개발·QA가 흔들리지 않게 문서화합니다.',
     },
     {
       icon: BarChart3,
-      title: '지표 설계·검증',
-      description: '전환/이탈/탐색 지표와 A/B 실험으로 개선 효과를 검증합니다.',
+      title: '지표·검증 관점',
+      description:
+        '전환/이탈 등 핵심 지표를 먼저 정하고, 개선 가설·로그 관점으로 검증 가능한 기획을 지향합니다.',
     },
     {
       icon: Sparkles,
-      title: '개발 커뮤니케이션',
+      title: '협업툴·AI 활용',
       description:
-        'API 계약·데이터 매핑·오류 시나리오까지 엔드투엔드로 핸드오프합니다.',
+        'Figma/Notion 중심으로 커뮤니케이션을 정리하고, 생성형 AI로 리서치 요약·초안·체크리스트를 보완합니다.',
     },
   ];
+
   return (
     <section id="about" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -87,14 +90,13 @@ export default function AboutSection() {
           </div>
 
           <p className="text-lg text-muted-foreground text-pretty max-w-3xl mx-auto">
-            사용자의 문제를 구조적으로 해석해{' '}
-            <span className="font-semibold">
-              서비스 기획 → UX 설계 → 개발 핸드오프
-            </span>
-            까지 연결하는{' '}
-            <span className="font-semibold">개발 가능한 기획자</span>{' '}
-            정성훈입니다. 구현 관점에서 타협하지 않는 기획, 데이터를 통해 배우는
-            기획을 지향합니다.
+            사용자의 문제를 <span className="font-semibold">리서치로 확인</span>
+            하고,
+            <span className="font-semibold"> IA·정책·요구사항</span>으로 정리해
+            <span className="font-semibold"> 개발 가능한 형태로 합의</span>
+            시키는 기획자 정성훈입니다. 협업 툴(Figma/Notion)과 생성형 AI를
+            활용해 산출물 품질을 높이고, 프로젝트에서는 팀장 경험을 바탕으로
+            커뮤니케이션과 조율을 책임감 있게 수행해왔습니다.
           </p>
         </div>
 
@@ -135,16 +137,21 @@ export default function AboutSection() {
               <div className="p-8 sm:p-10 space-y-8">
                 <div className="space-y-4">
                   <h3 className="text-2xl font-semibold">
-                    기획 ↔ 개발, 엔드투엔드로 잇습니다
+                    팀이 실행할 수 있는 형태로 정리합니다
                   </h3>
 
                   <p className="text-muted-foreground text-pretty">
                     <span className="font-medium">Planning & UX</span>: 문제정의
-                    → 리서치 → IA/플로우 → 와이어/프로토 → PRD → 구현 핸드오프 →
-                    데이터 기반 개선의{' '}
-                    <span className="font-medium">E2E 사이클</span>을
-                    주도합니다. 예외·정책·권한을 빠짐없이 정의하고, 팀이 같은
-                    그림을 보도록 문서화합니다.
+                    → 리서치 정리 → IA/플로우 → 정책/예외 정의 → PRD/화면정의 →
+                    협업/핸드오프까지, 팀이 같은 그림을 보도록 문서와
+                    커뮤니케이션을 책임집니다.
+                  </p>
+
+                  <p className="text-muted-foreground text-pretty">
+                    <span className="font-medium">Implementation Literacy</span>
+                    : 프론트엔드 개발 경험을 바탕으로 API/데이터 흐름, 상태/에러
+                    케이스, 구현 난이도까지 고려해 일정과 범위를 현실적으로
+                    설계합니다.
                   </p>
 
                   <p className="text-muted-foreground text-pretty">
@@ -185,6 +192,11 @@ export default function AboutSection() {
                       조직·데이터·프로세스를 관통하는 서비스 구조
                     </span>
                     를 설계하는 서비스/웹/앱 기획자로 성장하고 있습니다.
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    2년간 교내 동아리 회장으로 조직 운영과 커뮤니케이션을
+                    경험했고, 프로젝트에서는 팀장 역할로 일정/우선순위/의사결정
+                    정리를 맡아 팀의 실행 속도를 높이는 방식으로 협업해왔습니다.
                   </p>
                 </div>
               </div>

@@ -258,8 +258,10 @@ export default function ProjectsSection() {
             Projects
           </h2>
           <p className="mt-3 text-lg text-muted-foreground text-pretty max-w-3xl mx-auto">
-            제가 <strong>기획하고 팀과 함께 만든</strong> 주요 작업을
-            소개합니다. (모든 개발·협업 맥락은 역할 모달에서 확인하세요.)
+            아이디어를 “기능 목록”으로만 끝내지 않고,
+            <strong> 문제정의 → 요구사항/정책 → 협업/핸드오프</strong>까지 팀이
+            실행할 수 있게 정리한 프로젝트들입니다. (상세 역할/기여는 ‘역할’
+            모달에서 확인 가능합니다.)
           </p>
         </div>
 

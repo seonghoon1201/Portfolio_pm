@@ -5,7 +5,8 @@ export default function Footer() {
         <div className="text-center space-y-4">
           <div className="text-2xl font-bold text-primary">정성훈</div>
           <p className="text-muted-foreground">
-            서비스 기획자 | 웹·앱 UX 기획자 | 프론트엔드 이해자
+            서비스 기획 · UX/IA · PRD/정책 · 협업(Figma/Notion) · 실행 가능한
+            설계
           </p>
           <div className="pt-4 border-t border-border">
             <p className="text-sm text-muted-foreground">

@@ -22,9 +22,9 @@ export default function ContactSection() {
     {
       icon: Mail,
       title: '이메일',
-      value: 'hooni09061201@gmail.com',
-      href: 'mailto:hooni09061201@gmail.com',
-      copy: 'hooni09061201@gmail.com',
+      value: 'hooni7007@naver.com',
+      href: 'mailto:hooni7007@naver.com',
+      copy: 'hooni7007@naver.com',
     },
     {
       icon: Phone,

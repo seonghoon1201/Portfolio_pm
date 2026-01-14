@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tooltip } from 'antd';
-import { Wrench, Boxes, Code2, CheckCircle2 } from 'lucide-react';
+import { Wrench, Boxes, Code2, CheckCircle2, Sparkles } from 'lucide-react';
 
 export default function SkillsSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -34,8 +34,10 @@ export default function SkillsSection() {
 
   const libraries = [
     'Figma',
+    'FigJam',
     'Notion',
-    'Google Analytics',
+    'Google Analytics (GA4)',
+    'Google Sheets / Excel',
     'Postman',
     'Swagger',
   ];
@@ -46,6 +48,13 @@ export default function SkillsSection() {
     'Vue',
     'REST API 이해',
     'Git / GitHub 협업',
+  ];
+
+  const aiCollaboration = [
+    'Figma / FigJam로 화면·플로우 협의',
+    'Notion으로 PRD·회의록·결정사항 기록',
+    '생성형 AI로 리서치 요약/초안/체크리스트 보완',
+    'Slack/GitHub로 이슈 공유 및 변경 이력 관리',
   ];
 
   return (
@@ -176,6 +185,29 @@ export default function SkillsSection() {
                   </span>
                 ))}
               </div>
+            </CardContent>
+          </Card>
+          {/* AI & Collaboration */}
+          <Card className="group h-full border bg-card/70 backdrop-blur transition-all duration-700 hover:shadow-lg">
+            <CardHeader className="pb-4">
+              <div className="flex items-center justify-center gap-2">
+                <Sparkles className="h-5 w-5 text-primary" />
+                <CardTitle className="text-center text-xl">
+                  AI & Collaboration
+                </CardTitle>
+              </div>
+              <div className="mx-auto mt-2 h-px w-24 bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+            </CardHeader>
+            <CardContent className="space-y-2">
+              {aiCollaboration.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-start gap-2 rounded-lg border px-3 py-2 bg-background/60"
+                >
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 text-primary" />
+                  <span className="text-sm text-foreground/90">{item}</span>
+                </div>
+              ))}
             </CardContent>
           </Card>
         </div>
