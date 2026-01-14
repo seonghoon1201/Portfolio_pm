@@ -39,10 +39,13 @@ export default function HeroSection() {
 
               <p className="text-lg sm:text-xl text-muted-foreground text-pretty max-w-2xl">
                 사용자 문제를 <span className="font-medium">구조화</span>하고,
+                <br />
                 요구사항을 <span className="font-medium">문서로 정리</span>해
-                팀의 실행을 빠르게 만듭니다. 협업 툴(Figma/Notion 등)과
+                팀의 실행을 빠르게 만듭니다. <br />
+                협업 툴(Figma/Notion 등)과
                 <span className="font-medium"> 생성형 AI</span>를 활용해
-                리서치·기획 산출물의 품질과 속도를 높이고, 필요하면 화면을 직접
+                <br />
+                리서치·기획 산출물의 품질과 속도를 높이고, <br />필요하면 화면을 직접
                 구현해 가설을 빠르게 검증합니다.
               </p>
             </div>
