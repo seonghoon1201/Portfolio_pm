@@ -34,15 +34,17 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16">
           <div className="text-xl font-bold text-primary">정성훈</div>
           <div className="hidden md:flex space-x-8">
-            {['home', 'about', 'skills', 'projects', 'contact'].map((item) => (
-              <button
-                key={item}
-                onClick={() => scrollToSection(item)}
-                className="text-foreground hover:text-primary transition-colors duration-200 capitalize"
-              >
-                {item}
-              </button>
-            ))}
+            {['home', 'about', 'story', 'projects', 'skills', 'contact'].map(
+              (item) => (
+                <button
+                  key={item}
+                  onClick={() => scrollToSection(item)}
+                  className="text-foreground hover:text-primary transition-colors duration-200 capitalize"
+                >
+                  {item}
+                </button>
+              )
+            )}
           </div>
           <Button
             variant="ghost"
