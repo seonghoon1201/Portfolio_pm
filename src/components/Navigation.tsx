@@ -58,7 +58,7 @@ export default function Navigation() {
         {isMobileMenuOpen && (
           <div className="md:hidden bg-background border-t border-border">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {['home', 'about', 'skills', 'projects', 'contact'].map(
+              {['home', 'about', 'story', 'skills', 'projects', 'contact'].map(
                 (item) => (
                   <button
                     key={item}
