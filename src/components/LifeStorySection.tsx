@@ -150,7 +150,7 @@ export default function LifeStorySection() {
             Life & Perspective
           </div>
           <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight text-balance">
-            My Journey
+            My Story
           </h2>
           <p className="mt-3 text-lg text-muted-foreground text-pretty max-w-3xl mx-auto">
             관계를 만들고 운영을 개선해 온 경험이, ‘사람과 시스템을 잇는
