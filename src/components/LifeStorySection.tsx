@@ -36,13 +36,13 @@ type StrengthItem = {
   icon: React.ElementType;
 };
 
-export default function StorySummarySection() {
+export default function LifeStorySection() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const io = new IntersectionObserver(
       ([e]) => e.isIntersecting && setIsVisible(true),
-      { threshold: 0.12 }
+      { threshold: 0.12 },
     );
     const el = document.getElementById('story');
     if (el) io.observe(el);
@@ -176,19 +176,18 @@ export default function StorySummarySection() {
 
             <CardContent className="space-y-6">
               <p className="text-sm sm:text-base text-muted-foreground leading-relaxed text-pretty">
-                저는 사람이 모이고 규모가 커질수록 생기는 불편을 “관계 문제”로
-                만 두지 않고,
-                <br /> 규칙·프로세스·시스템 같은 구조 문제로 정의해 해결해온
-                경험이 있습니다. <br />
-                300명 이상 규모의 동아리를 운영하며 의사결정, 갈등 조율, 실행
-                관리의 현실을 배웠고, <br />
-                반복되는 문제를 기준과 운영 구조로 정리하며 조직을
-                안정화했습니다. <br />
-                이후 여러 프로젝트에서는 요구사항·예외·상태·데이터 흐름까지
-                고려한 기획으로 <br />
-                팀이 실행 가능한 형태로 합의하고, 실행–피드백–개선을 반복해
-                완성도를 끌어올리는 <br />
-                방식으로 일해왔습니다.
+                저는 사람이 모이고 규모가 커질수록 생기는 불편을 개인의 문제로
+                두지 않고,
+                <span className="font-medium"> 규칙·프로세스·시스템</span> 같은
+                구조 문제로 정의해 해결해왔습니다.
+                <br />
+                300명 이상 규모의 동아리를 운영하며 의사결정과 갈등 조율, 실행
+                관리의 현실을 배웠고, 반복되는 이슈는 기준과 운영 구조로 정리해
+                조직을 안정화했습니다.
+                <br />
+                프로젝트에서는 요구사항·예외·상태·데이터 흐름을 먼저 정리해 팀이
+                같은 그림으로 실행하도록 만들고, 실행 이후에는 피드백을 반영해
+                개선을 반복하며 완성도를 끌어올렸습니다.
               </p>
 
               <div className="rounded-xl border bg-background/70 p-4">

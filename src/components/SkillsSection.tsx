@@ -11,7 +11,7 @@ export default function SkillsSection() {
   useEffect(() => {
     const io = new IntersectionObserver(
       ([e]) => e.isIntersecting && setIsVisible(true),
-      { threshold: 0.12 }
+      { threshold: 0.12 },
     );
     const el = document.getElementById('skills');
     if (el) io.observe(el);
@@ -26,22 +26,20 @@ export default function SkillsSection() {
   ];
 
   const researchAnalytics = [
-    '인터뷰 / 설문 설계 및 진행',
-    '고객 여정맵 / JTBD 정리',
-    '핵심 지표 설계 / 로그 정의',
-    'A/B 테스트 기획 / 결과 해석',
+    '인터뷰 / 설문 설계 및 정리',
+    '고객 여정맵 / JTBD 구조화',
+    '핵심 지표(전환/이탈) 정의 및 가설 수립',
+    '로그/이벤트 관점으로 “무엇을 보면 성공인지” 기준 정리',
   ];
 
-  const libraries = [
-    'Figma',
-    'FigJam',
-    'Notion',
-    'Google Analytics (GA4)',
-    'Google Sheets / Excel',
-    'Postman',
-    'Swagger',
-  ];
-
+const libraries = [
+  'Figma',
+  'FigJam',
+  'Notion',
+  'Google Sheets / Excel',
+  'Postman',
+  'Swagger',
+];
   const devLiteracy = [
     'HTML / CSS / JS 이해',
     'React',

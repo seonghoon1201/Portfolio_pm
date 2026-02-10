@@ -36,9 +36,9 @@ export default function ContactSection() {
     {
       icon: MapPin,
       title: '위치',
-      value: '수지, 대한민국',
+      value: '경기도 용인시 수지구',
       href: '#',
-      copy: '수지, 대한민국',
+      copy: '경기도 용인시 수지구',
     },
   ];
 

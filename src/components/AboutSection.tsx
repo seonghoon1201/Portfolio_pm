@@ -148,13 +148,6 @@ export default function AboutSection() {
                   </p>
 
                   <p className="text-muted-foreground text-pretty">
-                    <span className="font-medium">Implementation Literacy</span>
-                    : 프론트엔드 개발 경험을 바탕으로 API/데이터 흐름, 상태/에러
-                    케이스, 구현 난이도까지 고려해 일정과 범위를 현실적으로
-                    설계합니다.
-                  </p>
-
-                  <p className="text-muted-foreground text-pretty">
                     <span className="font-medium">Dev Literacy</span>:
                     HTML/CSS/JS·React/Vue·API 연동 이해를 바탕으로 개발
                     난이도·일정·데이터 계약(스키마/에러)까지 고려해{' '}

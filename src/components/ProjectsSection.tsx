@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Github, UserSquare2 } from 'lucide-react';
+import { Github, UserSquare2, Trophy } from 'lucide-react';
 import Image from 'next/image';
 import RoleModal, { ProjectRoleData } from '@/components/RoleModal';
 
@@ -21,7 +21,10 @@ type Project = {
   technologies: string[];
   github: string;
   readme: string;
-  status?: string;
+
+  // ✅ 기존 status 대신 award 추천 (이름도 더 의미 명확)
+  award?: string;
+
   roleData: ProjectRoleData;
 };
 
@@ -33,7 +36,9 @@ export default function ProjectsSection() {
   useEffect(() => {
     const io = new IntersectionObserver(
       ([e]) => e.isIntersecting && setIsVisible(true),
-      { threshold: 0.12 }
+      {
+        threshold: 0.12,
+      },
     );
     const el = document.getElementById('projects');
     if (el) io.observe(el);
@@ -41,72 +46,19 @@ export default function ProjectsSection() {
   }, []);
 
   const projects: Project[] = [
+    
     {
-      title: 'ZIBI – 청약 지비',
+      title: 'Hiking Planner – 등산 도우미 앱',
+      award: '캡스톤 대상',
       description:
-        '복잡한 청약 정보를 단계형 UX로 단순화한 주택청약 도우미 웹앱. 신규/기존 사용자 모두의 진입장벽을 낮추는 흐름을 설계했습니다.',
-      image: '/zibi_logo.png',
-      technologies: [
-        'Figma',
-        'Miro',
-        'PRD',
-        'IA/Flow',
-        'Kakao Map',
-        'Vue(협업 소통)',
-      ],
-      github: 'https://github.com/PJT-16-3',
-      readme: 'https://github.com/PJT-16-3/.github/blob/main/profile/README.md',
-      roleData: {
-        title: 'ZIBI (청약 도우미)',
-        period: '2025.07 – 2025.08',
-        summary: '팀장 · 서비스 기획 · UX 설계 · FE 협업',
-        roles: [
-          {
-            label: '문제정의 & 전략',
-            bullets: [
-              '청약 정보 과잉/용어 난해성 문제 정의',
-              '신규/기존 사용자 시나리오 분기 및 KPI 설정',
-            ],
-            tags: ['Problem Framing', 'KPI'],
-          },
-          {
-            label: 'IA/플로우/정책',
-            bullets: [
-              '선호 설정 → 가점 계산 → 추천 흐름 IA/플로우',
-              '예외/권한/정책서 및 데이터 매핑 명세',
-            ],
-            tags: ['IA', 'Policy'],
-          },
-          {
-            label: '핸드오프 & 협업',
-            bullets: [
-              'API 계약서/스키마 정의, 화면-데이터 매핑',
-              '컴포넌트 규칙·상태명 규칙 합의',
-            ],
-            tags: ['Handoff', 'API Contract'],
-          },
-          {
-            label: '지표/검증',
-            bullets: [
-              '진입→계산→상세 전환 지표 설계',
-              'A/B 실험안 도출 및 로그 설계',
-            ],
-            tags: ['Metrics', 'Experiment'],
-          },
-        ],
-      },
-    },
-    {
-      title: 'Hiking Planner – 등산 안전 앱',
-      description:
-        '조난/이탈 상황에서 빠른 구조를 돕는 안전 중심 앱. SOS 1-탭 구조와 경로 최소화를 목표로 설계했습니다.',
+        '조난/이탈 상황에서 “빠르게 도움 요청”이 가능한 흐름을 목표로 SOS·트래킹·신고 플로우를 설계했습니다. 현장 사용성을 기준으로 조작 단계를 최소화했습니다.',
       image: '/Hiking_Planner_logo.png',
       technologies: [
         'User Interview',
         'Journey Map',
         'Wireframe',
         'SOS UX',
-        'RN(협업 소통)',
+        'RN(협업)',
       ],
       github: 'https://github.com/Hiking-Planner',
       readme:
@@ -115,11 +67,25 @@ export default function ProjectsSection() {
         title: 'Hiking Planner',
         period: '2024.02 – 2024.11',
         summary: '아이디어·UX 총괄 · 팀 리드',
+        problem:
+          '등산 중 길 이탈/조난 상황에서 위치 공유와 구조 요청이 복잡해 “골든타임”을 놓칠 수 있다.',
+        criteria: [
+          'SOS는 최소 터치로 접근 가능해야 함',
+          '권한/오프라인/저전력 등 예외에서 UX가 무너지지 않아야 함',
+        ],
+        decisions: [
+          'SOS 진입 단계를 단순화(확인 최소화)',
+          '권한/네트워크/저전력 예외 플로우를 별도 정책으로 정의',
+        ],
+        validation: [
+          '사용자 피드백 기반으로 플로우/문구 개선',
+          '캡스톤에서 결과로 성과를 인정받음(대상)',
+        ],
         roles: [
           {
             label: '리서치',
             bullets: [
-              '사전 인터뷰/리스크 맵 작성',
+              '사전 인터뷰 및 위험 시나리오 정리',
               '경쟁 서비스 벤치마크 및 차별점 정의',
             ],
             tags: ['Research'],
@@ -127,8 +93,8 @@ export default function ProjectsSection() {
           {
             label: 'UX 설계',
             bullets: [
-              'SOS 원터치/확인 최소화 플로우',
-              '트래킹·신고·날씨 핵심 사용자 여정',
+              'SOS 원터치 중심 플로우',
+              '트래킹/신고/날씨 핵심 여정 설계',
             ],
             tags: ['Flow', 'Wireframe'],
           },
@@ -140,25 +106,92 @@ export default function ProjectsSection() {
             ],
             tags: ['Policy'],
           },
+        ],
+      },
+    },
+    {
+      title: 'ZIBI – 주택 청약 도우미 앱',
+      award: '우수 프로젝트 선정',
+      description:
+        '복잡한 청약 정보를 “단계형 질문 플로우”로 재구성해 진입장벽을 낮춘 도우미 웹앱. 초심자도 이해 가능한 흐름을 기준으로 IA·정책·화면을 정리했습니다.',
+      image: '/zibi_logo.png',
+      technologies: [
+        'Figma',
+        'Miro',
+        'PRD',
+        'IA/Flow',
+        'Kakao Map',
+        'Vue(협업)',
+      ],
+      github: 'https://github.com/PJT-16-3',
+      readme: 'https://github.com/PJT-16-3/.github/blob/main/profile/README.md',
+      roleData: {
+        title: 'ZIBI (청약 도우미)',
+        period: '2025.07 – 2025.08',
+        summary: '팀장 · 서비스 기획 · UX/IA · FE 협업',
+        problem:
+          '청약 정보가 복잡하고 용어가 난해해, 사용자가 “가점 확인/추천 탐색”까지 도달하기 전에 이탈한다.',
+        criteria: [
+          '초심자가 이해 가능한 단계형 질문 플로우',
+          '핵심 정보는 요약→상세로 탐색 가능해야 함',
+          '예외/빈결과/권한 등 상태 정책이 먼저 정의되어야 함',
+        ],
+        decisions: [
+          '가점 계산을 다단계 질문 플로우로 설계(복잡도를 단계로 분산)',
+          '추천/상세 페이지는 “요약 우선” 구조로 정보 우선순위 재배치',
+          '공통 컴포넌트/상태명 규칙을 먼저 합의해 화면 일관성 확보',
+        ],
+        validation: [
+          '팀 내 사용자 관점 피드백을 반영해 플로우/문구/상태 처리를 개선',
+          '부트캠프 내 우수 프로젝트로 선정',
+        ],
+        roles: [
           {
-            label: '지표',
-            bullets: ['핵심 경로 과업 완료율', '이탈 포인트 개선 가설 수립'],
-            tags: ['Metrics'],
+            label: '문제정의 & 범위/우선순위',
+            bullets: [
+              '정보 과잉/용어 난해성 문제 정의',
+              '핵심 플로우(MVP) 범위와 후순위 기능을 분리',
+            ],
+            tags: ['Problem Framing', 'MVP'],
+          },
+          {
+            label: 'IA/플로우/정책',
+            bullets: [
+              '선호 설정 → 가점 계산 → 추천 탐색 IA/플로우 설계',
+              '예외/빈 결과/로딩/오류 상태 정책을 화면 기준으로 정리',
+            ],
+            tags: ['IA', 'Policy'],
+          },
+          {
+            label: '핸드오프 & 협업',
+            bullets: [
+              '화면-데이터 매핑 정리 및 협업 커뮤니케이션',
+              '변경사항/결정사항을 문서로 기록해 팀 정렬 유지',
+            ],
+            tags: ['Handoff', 'Docs'],
+          },
+          {
+            label: '지표/검증 관점(설계)',
+            bullets: [
+              '진입→계산→추천→상세까지의 핵심 전환 지점을 정의',
+              '개선 가설을 세우고 “무엇을 보면 성공인지” 기준을 문서로 정리',
+            ],
+            tags: ['Metrics (Design)', 'Hypothesis'],
           },
         ],
       },
     },
     {
-      title: 'Yeodam – 여행 계획 플랫폼',
+      title: 'Yeodam – 여행 계획 도우미 앱',
       description:
-        '여행 목적·예산·취향 기반으로 자동 일정을 생성하고 편집하는 웹앱. 지도/일정 동기화 중심의 편집 UX를 설계했습니다.',
+        '여행 조건 입력 → 자동 일정 생성 → 편집/확정까지 이어지는 여행 계획 웹앱. 지도/일정 동기화 기반의 편집 UX를 중심으로 설계했습니다.',
       image: '/yeodam.png',
       technologies: [
         'Storyboarding',
         'IA/Flow',
         'Tour API',
         'Schedule Editing',
-        'React(협업 소통)',
+        'React(협업)',
       ],
       github: 'https://github.com/YeoDamHuman',
       readme:
@@ -167,42 +200,55 @@ export default function ProjectsSection() {
         title: '여담 (여행 계획 앱)',
         period: '2025.05 – 2025.09',
         summary: '서비스 기획 · UX Writing · API 와이어업',
+        problem:
+          '여행 준비에서 동선/일정 구성 부담이 커서 계획을 끝까지 완성하기 어렵다.',
+        criteria: [
+          '입력 흐름은 단계형으로 단순해야 함',
+          '생성 결과는 “편집 가능한 형태”로 제공되어야 함',
+        ],
+        decisions: [
+          '위치→날짜→스타일→예산→초대 단계형 플로우',
+          '일정 결과는 Day별 카드 + 지도 + 편집 동선으로 고정',
+        ],
+        validation: ['사용 흐름 기반으로 에러/빈 결과 UX를 보완해 안정성 개선'],
         roles: [
-          {
-            label: '핵심 가치',
-            bullets: [
-              '준비과정 자동화(입력→계획)',
-              '지도/일정 동기화 편집 경험',
-            ],
-            tags: ['Value Prop'],
-          },
           {
             label: 'IA/플로우',
             bullets: [
-              '위치→날짜→스타일→예산→초대 단계 설계',
+              '단계형 입력 플로우 설계',
               '장바구니/추천/필터 상호작용 정의',
             ],
             tags: ['IA', 'Flow'],
           },
           {
-            label: 'API와이어업',
-            bullets: ['Tour API 스펙 검토 및 Fallback 정책', '에러/빈 결과 UX'],
+            label: 'API 와이어업',
+            bullets: [
+              'Tour API 스펙 검토 및 Fallback 정책',
+              '에러/빈 결과 UX 문구/상태 정의',
+            ],
             tags: ['API', 'UX Writing'],
+          },
+          {
+            label: 'AI 활용(초안 보조)',
+            bullets: [
+              '생성형 AI를 리서치 요약/문구 초안/체크리스트 보조로 활용',
+            ],
+            tags: ['GenAI (Assist)'],
           },
         ],
       },
     },
     {
-      title: 'DKUAC – 산악부 홈페이지',
+      title: 'DKUAC – 교내 동아리 산악부 홈페이지',
       description:
-        '장비 대여/활동 기록을 온라인으로 전환한 운영 시스템. 역할/권한과 프로세스를 기준으로 정보 구조를 설계했습니다.',
+        '장비 대여/활동 기록을 온라인으로 전환한 운영 시스템. 역할/권한과 운영 프로세스를 기준으로 정보 구조를 정리했습니다.',
       image: '/DKUAC_logo.png',
       technologies: [
         'Requirement',
         'Role/Permission',
         'Process',
         'Dashboard',
-        'React(협업 소통)',
+        'React(협업)',
       ],
       github: 'https://github.com/DKUAC',
       readme: 'https://github.com/DKUAC/.github/blob/main/profile/README.md',
@@ -210,13 +256,24 @@ export default function ProjectsSection() {
         title: 'DKUAC 동아리 홈페이지',
         period: '2024.07 – 2024.12',
         summary: '서비스 설계 · 운영 정책 · 유지보수',
+        problem:
+          '수기/메신저 기반 대여/반납 관리로 기록 누락과 혼선이 발생한다.',
+        criteria: [
+          '대여 상태가 한눈에 보여야 함',
+          '누가/언제/무엇을 대여했는지 기록이 남아야 함',
+        ],
+        decisions: [
+          '대여 상태 배지/필터 중심 UI',
+          '권한/역할과 운영 정책(패널티/알림) 정리',
+        ],
+        validation: [
+          '운영 이슈 반영 유지보수로 혼선 감소',
+          '온보딩/운영 매뉴얼 문서화',
+        ],
         roles: [
           {
             label: '요구사항 정리',
-            bullets: [
-              '운영 Pain Point 인터뷰/정리',
-              '우선순위 및 릴리즈 플랜 수립',
-            ],
+            bullets: ['운영 Pain Point 정리', '우선순위 및 릴리즈 플랜 수립'],
             tags: ['Requirement'],
           },
           {
@@ -225,12 +282,12 @@ export default function ProjectsSection() {
             tags: ['Policy', 'R&R'],
           },
           {
-            label: '운영/지표',
+            label: '운영/문서화',
             bullets: [
-              '대여율/미반납/활동량 간이 대시보드',
               '운영 매뉴얼/온보딩 문서화',
+              '반복 이슈를 기준/프로세스로 정리',
             ],
-            tags: ['Ops', 'Dashboard'],
+            tags: ['Ops', 'Docs'],
           },
         ],
       },
@@ -258,10 +315,9 @@ export default function ProjectsSection() {
             Projects
           </h2>
           <p className="mt-3 text-lg text-muted-foreground text-pretty max-w-3xl mx-auto">
-            아이디어를 “기능 목록”으로만 끝내지 않고,
-            <strong> 문제정의 → 요구사항/정책 → 협업/핸드오프</strong>까지 팀이
-            실행할 수 있게 정리한 프로젝트들입니다. (상세 역할/기여는 ‘역할’
-            모달에서 확인 가능합니다.)
+            문제정의 → IA/정책 → 산출물 정리 → 협업/핸드오프까지
+            <br />
+            팀이 실행할 수 있는 형태로 정리한 프로젝트들입니다.
           </p>
         </div>
 
@@ -291,6 +347,26 @@ export default function ProjectsSection() {
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                     priority={i < 2}
                   />
+                  {p.award && (
+                    <div className="absolute left-3 top-3 z-10">
+                      <span
+                        className="
+        inline-flex items-center gap-1.5
+        rounded-full
+        px-3 py-1.5
+        text-xs font-semibold
+        text-primary-foreground
+        bg-gradient-to-r from-primary to-primary/80
+        shadow-md shadow-primary/20
+        ring-1 ring-black/5
+        backdrop-blur
+      "
+                      >
+                        <Trophy className="h-3.5 w-3.5" />
+                        {p.award}
+                      </span>
+                    </div>
+                  )}
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
               </button>
@@ -316,6 +392,7 @@ export default function ProjectsSection() {
                     </Badge>
                   ))}
                 </div>
+
                 <div className="grid grid-cols-2 gap-2">
                   <Button
                     asChild
@@ -347,6 +424,7 @@ export default function ProjectsSection() {
           ))}
         </div>
       </div>
+
       <RoleModal open={open} onClose={() => setOpen(false)} data={selected} />
     </section>
   );
